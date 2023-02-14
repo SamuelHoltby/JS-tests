@@ -1,0 +1,72 @@
+import {
+    averageAmounts,
+    capitalized,
+    doubleTripleEvenOddNumbers,
+    firstLastSwap, flipKeys, mostCommonLetter,
+    secondSmallest,
+    vowelCount
+} from "./index"
+
+describe('JS Test questions', () => {
+    it('Should return array with double evens and triple odds', () => {
+        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        const expectedArray = [3, 4, 9, 8, 15, 12, 21, 16, 27, 20]
+
+        expect(doubleTripleEvenOddNumbers(array)).toEqual(expectedArray)
+    });
+
+    it('Should return vowel count', () => {
+        const vowels = 'aaeeiioouuuuuu'
+        const expectedVowels = {a: 2, e: 2, i: 2, o: 2, u: 6}
+
+        expect(vowelCount(vowels)).toEqual(expectedVowels)
+    });
+
+    it('Should return average amounts', () => {
+        const arrayOfObjects = [{a: 1, b: 2, c: 3}, {a: 4, b: 5, c: 6}, {a: 7, b: 8, c: 9}];
+        const expectedAverageAmounts = {a: 4, b: 5, c: 6}
+        const res = averageAmounts(arrayOfObjects)
+
+        expect(res).toEqual(expectedAverageAmounts)
+    });
+
+    it('Should return capitalized text', () => {
+        const text = 'This is a test'
+        const expectedText = 'This Is A Test'
+        const res = capitalized(text)
+
+        expect(res).toEqual(expectedText)
+    });
+
+    it('Should return swapped first and last number', () => {
+        const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        const expectedNumbers = [9, 2, 3, 4, 5, 6, 7, 8, 1]
+        const res = firstLastSwap(numbers)
+
+        expect(res).toEqual(expectedNumbers)
+    });
+
+    it('Should return second smallest number', () => {
+        const numbers = [25, 33, 41, 11, 55]
+        const expectedNumber = 25
+        const res = secondSmallest(numbers)
+
+        expect(res).toEqual(expectedNumber)
+    });
+
+    it('Should return flipped keys ', () => {
+        const object = {a: 1, e: 2, i: 3, o: 4, u: 5}
+        const ExpectedResult = {1: 'a', 2: 'e', 3: 'i', 4: 'o', 5: 'u'}
+        const res = flipKeys(object)
+
+        expect(res).toEqual(ExpectedResult)
+    });
+
+    it('Should return common letter ', () => {
+        const string = 'This is a tests'
+        const ExpectedResult = 's'
+        const res = mostCommonLetter(string)
+
+        expect(res).toEqual(ExpectedResult)
+    });
+})
