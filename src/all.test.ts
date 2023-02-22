@@ -47,11 +47,8 @@ describe('JS Test questions', () => {
     });
 
     it('Should return second smallest number', () => {
-        const numbers = [25, 33, 41, 11, 55]
-        const expectedNumber = 25
-        const res = secondSmallest(numbers)
-
-        expect(res).toEqual(expectedNumber)
+        expect(secondSmallest([25, 33, 1000, 41, 11, 55])).toEqual(25)
+        expect(secondSmallest([15, 2, 1000])).toEqual(15)
     });
 
     it('Should return flipped keys ', () => {
