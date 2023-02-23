@@ -1,11 +1,16 @@
+import { fib100 } from './fib'
 import {
     averageAmounts,
     capitalized,
     doubleTripleEvenOddNumbers,
-    firstLastSwap, flipKeys, mostCommonLetter,
+    fibonacciNumber,
+    firstLastSwap,
+    flipKeys,
+    mostCommonLetter,
+    printFibonacci,
     secondSmallest,
-    vowelCount
-} from "./index"
+    vowelCount,
+} from './index'
 
 describe('JS Test questions', () => {
     it('Should return array with double evens and triple odds', () => {
@@ -13,22 +18,26 @@ describe('JS Test questions', () => {
         const expectedArray = [3, 4, 9, 8, 15, 12, 21, 16, 27, 20]
 
         expect(doubleTripleEvenOddNumbers(array)).toEqual(expectedArray)
-    });
+    })
 
     it('Should return vowel count', () => {
         const vowels = 'aaeeiioouuuuuu'
-        const expectedVowels = {a: 2, e: 2, i: 2, o: 2, u: 6}
+        const expectedVowels = { a: 2, e: 2, i: 2, o: 2, u: 6 }
 
         expect(vowelCount(vowels)).toEqual(expectedVowels)
-    });
+    })
 
     it('Should return average amounts', () => {
-        const arrayOfObjects = [{a: 1, b: 2, c: 3}, {a: 4, b: 5, c: 6}, {a: 7, b: 8, c: 9}];
-        const expectedAverageAmounts = {a: 4, b: 5, c: 6}
+        const arrayOfObjects = [
+            { a: 1, b: 2, c: 3 },
+            { a: 4, b: 5, c: 6 },
+            { a: 7, b: 8, c: 9 },
+        ]
+        const expectedAverageAmounts = { a: 4, b: 5, c: 6 }
         const res = averageAmounts(arrayOfObjects)
 
         expect(res).toEqual(expectedAverageAmounts)
-    });
+    })
 
     it('Should return capitalized text', () => {
         const text = 'This is a test'
@@ -36,7 +45,7 @@ describe('JS Test questions', () => {
         const res = capitalized(text)
 
         expect(res).toEqual(expectedText)
-    });
+    })
 
     it('Should return swapped first and last number', () => {
         const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -44,20 +53,20 @@ describe('JS Test questions', () => {
         const res = firstLastSwap(numbers)
 
         expect(res).toEqual(expectedNumbers)
-    });
+    })
 
     it('Should return second smallest number', () => {
         expect(secondSmallest([25, 33, 1000, 41, 11, 55])).toEqual(25)
         expect(secondSmallest([15, 2, 1000])).toEqual(15)
-    });
+    })
 
     it('Should return flipped keys ', () => {
-        const object = {a: 1, e: 2, i: 3, o: 4, u: 5}
-        const ExpectedResult = {1: 'a', 2: 'e', 3: 'i', 4: 'o', 5: 'u'}
+        const object = { a: 1, e: 2, i: 3, o: 4, u: 5 }
+        const ExpectedResult = { 1: 'a', 2: 'e', 3: 'i', 4: 'o', 5: 'u' }
         const res = flipKeys(object)
 
         expect(res).toEqual(ExpectedResult)
-    });
+    })
 
     it('Should return common letter ', () => {
         const string = 'This is a tests'
@@ -65,5 +74,23 @@ describe('JS Test questions', () => {
         const res = mostCommonLetter(string)
 
         expect(res).toEqual(ExpectedResult)
-    });
+    })
+
+    it('Should return printFibonacci', () => {
+        expect(printFibonacci(1)).toEqual('0')
+        expect(printFibonacci(2)).toEqual('0,1')
+        expect(printFibonacci(3)).toEqual('0,1,1')
+        expect(printFibonacci(5)).toEqual('0,1,1,2,3,5')
+        expect(printFibonacci(10)).toEqual('0,1,1,2,3,5,8,13,21,34,55')
+        expect(printFibonacci(100)).toEqual(fib100)
+    })
+
+    it('Should return fibonacciNumber', () => {
+        expect(fibonacciNumber(1)).toEqual('0')
+        expect(fibonacciNumber(2)).toEqual('1')
+        expect(fibonacciNumber(3)).toEqual('2')
+        expect(fibonacciNumber(5)).toEqual('5')
+        expect(fibonacciNumber(6)).toEqual('8')
+        expect(fibonacciNumber(100)).toEqual('354224848179261915075')
+    })
 })
