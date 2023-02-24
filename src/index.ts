@@ -146,38 +146,36 @@ export const mostCommonLetter: (text: string) => string = (text) => {
 }
 
 export const printFibonacci = (max: number): string => {
-    if (max === 1) return '0'
-    else if (max === 2) return '0,1'
-    else if (max === 3) return '0,1,1'
+    if (max === 1) return '1'
+    else if (max === 2) return '1,1'
 
-    const fibonacci = [BigInt(0), BigInt(1), BigInt(1)]
+    const fibonacci: bigint[] = [BigInt(1), BigInt(1)]
 
     do {
         fibonacci.push(
             BigInt(fibonacci[fibonacci.length - 1]) +
                 BigInt(fibonacci[fibonacci.length - 2])
         )
-    } while (fibonacci.length <= max)
+    } while (fibonacci.length < max)
 
     return fibonacci.join(',')
 }
 
-export const fibonacciNumber = (max: number): bigint | string => {
-    if (max === 1) return '0'
+export const fibonacciNumber = (max: number): string => {
+    if (max === 1) return '1'
     else if (max === 2) return '1'
-    else if (max === 3) return '2'
 
-    let fibonacci = BigInt(0)
-    let numberMinus2 = BigInt(1)
-    let numberMinus1 = BigInt(1)
+    let fibonacci: number | bigint = 0
+    let numberMinus2: number | bigint = 1
+    let numberMinus1: number | bigint = 1
 
-    let count = 3
+    let count = 2
     do {
         fibonacci = BigInt(numberMinus1) + BigInt(numberMinus2)
         numberMinus2 = numberMinus1
         numberMinus1 = fibonacci
         count++
-    } while (count <= max)
+    } while (count < max)
 
     return BigInt(fibonacci).toString()
 }

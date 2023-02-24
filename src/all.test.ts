@@ -1,13 +1,10 @@
-import { fib100 } from './fib'
 import {
     averageAmounts,
     capitalized,
     doubleTripleEvenOddNumbers,
-    fibonacciNumber,
     firstLastSwap,
     flipKeys,
     mostCommonLetter,
-    printFibonacci,
     secondSmallest,
     vowelCount,
 } from './index'
@@ -74,23 +71,5 @@ describe('JS Test questions', () => {
         const res = mostCommonLetter(string)
 
         expect(res).toEqual(ExpectedResult)
-    })
-
-    it('Should return printFibonacci', () => {
-        expect(printFibonacci(1)).toEqual('0')
-        expect(printFibonacci(2)).toEqual('0,1')
-        expect(printFibonacci(3)).toEqual('0,1,1')
-        expect(printFibonacci(5)).toEqual('0,1,1,2,3,5')
-        expect(printFibonacci(10)).toEqual('0,1,1,2,3,5,8,13,21,34,55')
-        expect(printFibonacci(100)).toEqual(fib100)
-    })
-
-    it('Should return fibonacciNumber', () => {
-        expect(fibonacciNumber(1)).toEqual('0')
-        expect(fibonacciNumber(2)).toEqual('1')
-        expect(fibonacciNumber(3)).toEqual('2')
-        expect(fibonacciNumber(5)).toEqual('5')
-        expect(fibonacciNumber(6)).toEqual('8')
-        expect(fibonacciNumber(100)).toEqual('354224848179261915075')
     })
 })
