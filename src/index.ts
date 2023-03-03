@@ -145,6 +145,11 @@ export const mostCommonLetter: (text: string) => string = (text) => {
     })?.[0]
 }
 
+/**
+ * It takes a number, and returns a string of the first n numbers in the Fibonacci sequence
+ * @param {number} max - number - The maximum number of Fibonacci numbers to print.
+ * @returns A string of the fibonacci sequence up to the max number
+ */
 export const printFibonacci = (max: number): string => {
     if (max === 1) return '1'
     else if (max === 2) return '1,1'
@@ -161,6 +166,11 @@ export const printFibonacci = (max: number): string => {
     return fibonacci.join(',')
 }
 
+/**
+ * It takes a number, and returns the fibonacci number at that position
+ * @param {number} max - The number of the Fibonacci sequence you want to find.
+ * @returns The nth number in the fibonacci sequence
+ */
 export const fibonacciNumber = (max: number): string => {
     if (max === 1) return '1'
     else if (max === 2) return '1'
@@ -178,4 +188,36 @@ export const fibonacciNumber = (max: number): string => {
     } while (count < max)
 
     return BigInt(fibonacci).toString()
+}
+
+/**
+ * We take a string, filter out all non-alphabetical characters, and then compare the filtered string to the filtered
+ * string reversed
+ * @param {string} palindrome - string - the string we're checking to see if it's a palindrome
+ * @returns A boolean value
+ */
+export const isPalindrome = (palindrome: string): boolean => {
+    const filteredPalindromeArray = palindrome.toLowerCase().match(/[a-z]/g)
+
+    const filteredPalindrome = filteredPalindromeArray?.join('')
+    const flippedPalindrome = filteredPalindromeArray?.reduce(
+        (reversed, character) => character + reversed,
+        ''
+    )
+
+    return filteredPalindrome === flippedPalindrome
+}
+
+/**
+ * We take the palindrome string, filter out all non-alphabetical characters, and then compare the filtered string to the
+ * filtered string reversed
+ * @param {string} palindrome - string - the string we're checking to see if it's a palindrome
+ * @returns a boolean value.
+ */
+export const isPalindromeClassic = (palindrome: string): boolean => {
+    const filteredPalindromeArray = palindrome.toLowerCase().match(/[a-z]/g)
+
+    const filteredPalindrome = filteredPalindromeArray?.join('')
+    const flippedPalindrome = filteredPalindromeArray?.reverse()?.join('')
+    return filteredPalindrome === flippedPalindrome
 }

@@ -4,6 +4,8 @@ import {
     doubleTripleEvenOddNumbers,
     firstLastSwap,
     flipKeys,
+    isPalindrome,
+    isPalindromeAlternative,
     mostCommonLetter,
     secondSmallest,
     vowelCount,
@@ -71,5 +73,39 @@ describe('JS Test questions', () => {
         const res = mostCommonLetter(string)
 
         expect(res).toEqual(ExpectedResult)
+    })
+
+    it('Should return whether strings are palindromes', () => {
+        const englishPalindromes = [
+            'Deified',
+            'A man, a plan, a canal, Panama!',
+            'Was it a car or a cat I saw?',
+            "Madam, in Eden, I'm Adam",
+            'Able was I ere I saw Elba',
+            'Radar',
+            'A Santa at NASA',
+            'Mr. Owl ate my metal worm',
+            "A Toyota's a Toyota",
+            'Ma is a nun, as I am',
+            'Racecar',
+            "Don't nod",
+            'Eva, can I see bees in a cave?',
+            'Do geese see God?',
+            'Level',
+            'Never odd or even',
+            'No lemons, no melon',
+            'Rats live on no evil star',
+            'Step on no pets',
+            'Was it a rat I saw?',
+        ]
+
+        englishPalindromes.forEach((palindrome) => {
+            expect(isPalindrome(palindrome)).toEqual(true)
+        })
+
+        const words = ['Test', 'Pizza', 'Laptop', 'Headphones']
+        words.forEach((word) => {
+            expect(isPalindrome(word)).toEqual(false)
+        })
     })
 })
