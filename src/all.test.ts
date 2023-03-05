@@ -2,10 +2,10 @@ import {
     averageAmounts,
     capitalized,
     doubleTripleEvenOddNumbers,
+    findLongestAlphabetLike,
     firstLastSwap,
     flipKeys,
     isPalindrome,
-    isPalindromeAlternative,
     mostCommonLetter,
     secondSmallest,
     vowelCount,
@@ -107,5 +107,11 @@ describe('JS Test questions', () => {
         words.forEach((word) => {
             expect(isPalindrome(word)).toEqual(false)
         })
+    })
+
+    it('Should return longest alphabet link', () => {
+        const result = findLongestAlphabetLike('abbbcabcdefefg')
+        expect(result).toEqual('abcdef')
+        expect(result.length).toEqual(6)
     })
 })
