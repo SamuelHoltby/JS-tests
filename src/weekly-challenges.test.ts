@@ -1,5 +1,11 @@
 import { fib100 } from './fib'
-import { fibonacciNumber, printFibonacci } from './index'
+import {
+    classifyArrayElements,
+    fibonacciNumber,
+    findLongestAlphabetLike,
+    isPalindrome,
+    printFibonacci,
+} from './index'
 
 describe('Weekly Challenges', () => {
     it('Should return printFibonacci', () => {
@@ -18,5 +24,80 @@ describe('Weekly Challenges', () => {
         expect(fibonacciNumber(5)).toEqual('5')
         expect(fibonacciNumber(6)).toEqual('8')
         expect(fibonacciNumber(100)).toEqual('354224848179261915075')
+    })
+
+    it('Should return whether strings are palindromes', () => {
+        const englishPalindromes = [
+            'Deified',
+            'A man, a plan, a canal, Panama!',
+            'Was it a car or a cat I saw?',
+            "Madam, in Eden, I'm Adam",
+            'Able was I ere I saw Elba',
+            'Radar',
+            'A Santa at NASA',
+            'Mr. Owl ate my metal worm',
+            "A Toyota's a Toyota",
+            'Ma is a nun, as I am',
+            'Racecar',
+            "Don't nod",
+            'Eva, can I see bees in a cave?',
+            'Do geese see God?',
+            'Level',
+            'Never odd or even',
+            'No lemons, no melon',
+            'Rats live on no evil star',
+            'Step on no pets',
+            'Was it a rat I saw?',
+        ]
+
+        englishPalindromes.forEach((palindrome) => {
+            expect(isPalindrome(palindrome)).toEqual(true)
+        })
+
+        const words = ['Test', 'Pizza', 'Laptop', 'Headphones']
+        words.forEach((word) => {
+            expect(isPalindrome(word)).toEqual(false)
+        })
+    })
+
+    it('Should return longest alphabet link', () => {
+        const result = findLongestAlphabetLike('abbbcabcdefefg')
+        expect(result).toEqual('abcdef')
+        expect(result.length).toEqual(6)
+    })
+
+    it('Should return array as numbers, letter, misc', () => {
+        //order numbers and letters
+        expect(
+            /* Sorting the array by type and then by value. */
+            classifyArrayElements([2, 'b', 4, 'd', 3, 'a', 'c', 'e', 5, 1])
+        ).toEqual([2, 4, 3, 5, 1, 'b', 'd', 'a', 'c', 'e'])
+
+        //order numbers, letters, and misc
+        expect(
+            classifyArrayElements([
+                2,
+                'b',
+                '!',
+                4,
+                'd',
+                '&',
+                3,
+                'a',
+                'c',
+                '😃',
+                'e',
+                5,
+                1,
+            ])
+        ).toEqual([2, 4, 3, 5, 1, 'b', 'd', 'a', 'c', 'e', '!', '&', '😃'])
+
+        //order types as well
+        expect(
+            classifyArrayElements(
+                [2, 'b', '!', 4, 'd', '&', 3, 'a', 'c', '😃', 'e', 5, 1],
+                true
+            )
+        ).toEqual([1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', '!', '&', '😃'])
     })
 })
