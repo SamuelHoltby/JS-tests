@@ -1,11 +1,9 @@
-import { fib100 } from './fib'
-import {
-    classifyArrayElements,
-    fibonacciNumber,
-    findLongestAlphabetLike,
-    isPalindrome,
-    printFibonacci,
-} from './index'
+import { classifyArrayElements } from './challenges/weekly/classifyArrayElements'
+import { fib100 } from './challenges/weekly/fib'
+import { fibonacciNumber } from './challenges/weekly/fibonacciNumber'
+import { findLongestAlphabetLike } from './challenges/weekly/findLongestAlphabetLike'
+import { isPalindrome } from './challenges/weekly/isPalindrome'
+import { printFibonacci } from './challenges/weekly/printFibonacci'
 
 describe('Weekly Challenges', () => {
     it('Should return printFibonacci', () => {
@@ -69,7 +67,6 @@ describe('Weekly Challenges', () => {
     it('Should return array as numbers, letter, misc', () => {
         //order numbers and letters
         expect(
-            /* Sorting the array by type and then by value. */
             classifyArrayElements([2, 'b', 4, 'd', 3, 'a', 'c', 'e', 5, 1])
         ).toEqual([2, 4, 3, 5, 1, 'b', 'd', 'a', 'c', 'e'])
 
@@ -95,9 +92,9 @@ describe('Weekly Challenges', () => {
         //order types as well
         expect(
             classifyArrayElements(
-                [2, 'b', '!', 4, 'd', '&', 3, 'a', 'c', '😃', 'e', 5, 1],
+                [2, '3', 'b', '!', 4, 'd', '&', 3, 'a', 'c', '😃', 'e', 5, 1],
                 true
             )
-        ).toEqual([1, 2, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', '!', '&', '😃'])
+        ).toEqual([1, 2, 3, 3, 4, 5, 'a', 'b', 'c', 'd', 'e', '!', '&', '😃'])
     })
 })

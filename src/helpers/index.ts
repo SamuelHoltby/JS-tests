@@ -7,3 +7,6 @@ export const sortLetters = (a: string, b: string) => {
 
     return 0
 }
+export type ObjectWithNumericValues = {
+    [key: string]: number
+}

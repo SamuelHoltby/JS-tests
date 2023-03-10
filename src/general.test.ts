@@ -1,15 +1,13 @@
-import {
-    averageAmounts,
-    capitalized,
-    doubleTripleEvenOddNumbers,
-    firstLastSwap,
-    flipKeys,
-    mostCommonLetter,
-    secondSmallest,
-    vowelCount,
-} from './index'
+import { averageAmounts } from './challenges/general/averageAmounts'
+import { capitalized } from './challenges/general/capitalized'
+import { doubleTripleEvenOddNumbers } from './challenges/general/doubleTripleEvenOddNumbers'
+import { firstLastSwap } from './challenges/general/firstLastSwap'
+import { flipKeys } from './challenges/general/flipKeys'
+import { mostCommonLetter } from './challenges/general/mostCommonLetter'
+import { secondSmallest } from './challenges/general/secondSmallest'
+import { vowelCount } from './challenges/general/vowelCount'
 
-describe('JS Test questions', () => {
+describe('General JS Test questions', () => {
     it('Should return array with double evens and triple odds', () => {
         const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         const expectedArray = [3, 4, 9, 8, 15, 12, 21, 16, 27, 20]
